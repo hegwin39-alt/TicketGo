@@ -1,0 +1,68 @@
+cd entertainment && python manage.py shell -c "
+from main.models import Event
+
+Event.objects.all().delete()
+
+Event.objects.create(
+    title='Большой рок-концерт',
+    category='Концерт',
+    date='20 апреля 2026',
+    time='19:00',
+    location='Москва, Crocus City Hall',
+    price=3500,
+    image='https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80',
+    description='Яркий рок-концерт с живым звуком, световым шоу и любимыми хитами.',
+)
+Event.objects.create(
+    title='Премьера спектакля «Гамлет»',
+    category='Театр',
+    date='25 апреля 2026',
+    time='18:30',
+    location='Санкт-Петербург, Александринский театр',
+    price=2200,
+    image='https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=1200&q=80',
+    description='Классическая постановка в современной интерпретации с известными актёрами.',
+)
+Event.objects.create(
+    title='Ночной показ фильма',
+    category='Кино',
+    date='28 апреля 2026',
+    time='22:00',
+    location='Казань, Cinema Hall',
+    price=700,
+    image='https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80',
+    description='Специальный ночной показ ожидаемой кинопремьеры в комфортном зале.',
+)
+Event.objects.create(
+    title='Фестиваль джаза под открытым небом',
+    category='Фестиваль',
+    date='5 мая 2026',
+    time='17:00',
+    location='Сочи, Летняя сцена',
+    price=1800,
+    image='https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=1200&q=80',
+    description='Атмосферный музыкальный вечер с лучшими джазовыми коллективами.',
+)
+Event.objects.create(
+    title='Детское новогоднее шоу',
+    category='Шоу',
+    date='10 мая 2026',
+    time='12:00',
+    location='Екатеринбург, Дворец культуры',
+    price=1200,
+    image='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80',
+    description='Интерактивное представление для детей с музыкой, конкурсами и подарками.',
+)
+Event.objects.create(
+    title='Стендап-вечер',
+    category='Стендап',
+    date='14 мая 2026',
+    time='20:00',
+    location='Новосибирск, Comedy Club Hall',
+    price=1500,
+    image='https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1200&q=80',
+    description='Вечер юмора с популярными комиками и уютной атмосферой.',
+)
+
+print(Event.objects.count())
+"

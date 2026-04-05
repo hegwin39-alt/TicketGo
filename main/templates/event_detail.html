@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ event.title|default:"Мероприятие" }} | TicketGo{% endblock %}
+
+{% block content %}
+{% if event %}
+<div class="row g-4">
+    <div class="col-lg-7">
+        <img src="{{ event.image }}" alt="{{ event.title }}" class="img-fluid rounded-4 shadow-soft w-100">
+    </div>
+
+    <div class="col-lg-5">
+        <div class="bg-white p-4 rounded-4 shadow-soft h-100">
+            <span class="badge bg-primary mb-3">{{ event.category }}</span>
+            <h1 class="fw-bold mb-3">{{ event.title }}</h1>
+            <p class="mb-2"><strong>Дата:</strong> {{ event.date }}</p>
+            <p class="mb-2"><strong>Время:</strong> {{ event.time }}</p>
+            <p class="mb-2"><strong>Место:</strong> {{ event.location }}</p>
+            <p class="mb-3"><strong>Цена билета:</strong> {{ event.price }} ₽</p>
+            <p class="text-muted">{{ event.description }}</p>
+
+            <div class="d-flex gap-2 mt-4">
+                <a href="{% url 'checkout' event.id %}" class="btn btn-primary btn-lg">Купить билет</a>
+                <a href="{% url 'event_list' %}" class="btn btn-outline-secondary btn-lg">Назад</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="alert alert-danger rounded-4">
+    Мероприятие не найдено.
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Заказ оформлен | TicketGo{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="bg-white p-4 p-md-5 rounded-4 shadow-soft text-center">
+            <h1 class="fw-bold text-success mb-3">Заказ успешно оформлен!</h1>
+            <p class="lead mb-4">
+                Спасибо, <strong>{{ name }}</strong>! Ваш заказ принят.
+            </p>
+
+            <div class="text-start mx-auto" style="max-width: 500px;">
+                <p><strong>Мероприятие:</strong> {{ event.title }}</p>
+                <p><strong>Email:</strong> {{ email }}</p>
+                <p><strong>Количество билетов:</strong> {{ tickets_count }}</p>
+                <p><strong>Итоговая сумма:</strong> {{ total_price }} ₽</p>
+            </div>
+
+            <a href="{% url 'event_list' %}" class="btn btn-primary mt-3">Вернуться к афише</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
